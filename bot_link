@@ -1,0 +1,18 @@
+from discord.ext import commands
+
+bot = commands.Bot(command_prefix='!')
+
+links = []  # Lista para almacenar los enlaces
+
+@bot.command()
+async def save_link(ctx, link):
+    links.append(link)
+    await ctx.send(f"Enlace guardado: {link}")
+
+@bot.command()
+async def show_links(ctx):
+    if len(links) > 0:
+        link_list = '\n'.join(links)
+        await ctx.send(f"Enlaces guardados:\n{link_list}")
+    else:
+        await ctx.send("No se han guardado enlaces aún.")

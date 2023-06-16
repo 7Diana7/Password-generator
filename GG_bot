@@ -25,6 +25,8 @@ async def on_message(message):
         await message.channel.send(gen_pass(10))
     elif message.content.startswith("coin"):
         await message.channel.send(flip_coin)
+    elif message.content.startswith("Trivia!"):
+        await message.channel.send("???")
     else:
         await message.channel.send("Perdon,no entiendo el mensaje.Intente decir pass/coin o inster music")
 
